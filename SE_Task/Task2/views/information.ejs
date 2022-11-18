@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('template/head') %>
+</head>
+
+<body>
+    <%- include('template/header') %>
+
+        <main>
+            <h1 text-align="center">Articles Information Table</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Authors</th>
+                        <th scope="col">Realease Date</th>
+                        <th scope="col">Collection</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let info of data) { %>
+                        <tr>
+                            <% for (let el in info) { %>
+                                <td>
+                                    <%= info[el] %>
+                                </td>
+                                <%} %>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </main>
+
+        <%- include('template/footer') %>
+</body>
+
+</html>

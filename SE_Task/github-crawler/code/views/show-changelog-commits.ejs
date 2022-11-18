@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+<%- include('partials/header') %>
+<main>
+    <h1 style="text-align: center">Change Log - Commits</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th scope="col" style="text-align: center; min-width: 300px; max-width: 600px">Change Log</th>
+            <th scope="col" style="text-align: center">Commits</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td rowspan="<%=data[index].commitsList.length%>"
+                style="max-width: 600px; min-width: 400px">
+                <%- data[index].changeLog%>
+            </td>
+            <td style="max-width: 700px">
+                <table class="table table-bordered table-hover">
+                    <% for (let i = data[index].commitsList.length - 1; i > 0; --i) { %>
+                    <% let commit = data[index].commitsList[i]; %>
+                    <tr class="scroll" scope="row">
+                        <td>
+                            <a href="<%=commit.html_url%>"><%= commit.sha%></a>
+                            <br>
+                            <%- commit.commit.message.replace(/\n/g, "<br>")%>
+                        </td>
+                    </tr>
+                    <% } %>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<%- include('partials/footer') %>
+</body>
+
+</html>
