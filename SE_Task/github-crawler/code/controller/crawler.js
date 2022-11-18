@@ -22,7 +22,7 @@ async function fetchData(url) {
             console.log("Error occurred, refetching data from " + url);
         response = await axios.get(url, {
             headers: {
-                Authorization: `token ${TOKEN}`,
+                // Authorization: `token ${TOKEN}`,
                 accept: 'application/vnd.github+json',
             }
         }).catch((err) => console.log("fail when fetching from: " + url + "\n" + err));
