@@ -1,7 +1,7 @@
 const express = require('express');
 const releaseCrawler = require('./controller/crawler.js');
 
-const PORT = 1204;
+const PORT = process.env.PORT || 1204;
 
 const app = express();
 
